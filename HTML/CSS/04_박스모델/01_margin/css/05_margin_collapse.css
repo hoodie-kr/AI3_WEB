@@ -1,0 +1,9 @@
+
+.container{
+    position: relative;
+    width: 1200px;
+    height: auto;
+    border: 5px dashed orange;
+    margin: 100px auto;
+    text-align: center;
+}
