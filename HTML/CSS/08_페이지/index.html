@@ -356,6 +356,38 @@
     </footer>
     <!-- ###################### FOOTER ###################### -->
 
+    <<script>
+        // 특가 타이머 함수
+        function timer() {
+            const now = new Date()
+    
+            // 내일 자정 (00:00:00)
+            const tomorrow = new Date()
+            tomorrow.setHours(24, 0, 0, 0) // 오늘 24:00:00 == 내일 00:00:00
+    
+            // 시간차 계산
+            const diff = tomorrow - now
+    
+            let time = Math.floor(diff / 1000) // 초 단위
+            let hours = Math.floor(time / 3600)
+            let mins = Math.floor((time % 3600) / 60)
+            let secs = time % 60
+    
+            // 2자리수 형식
+            hours = String(hours).padStart(2, '0')
+            mins = String(mins).padStart(2, '0')
+            secs = String(secs).padStart(2, '0')
+    
+            // 타이머 업데이트
+            let $timer = document.getElementById('special-timer')
+            if ($timer) {
+                $timer.textContent = `${hours}:${mins}:${secs}`
+            }
+        }
+    
+        setInterval(timer, 1000)
+    </script>
+    
 
     <div style="height: 2000px;"></div>
 </body>
